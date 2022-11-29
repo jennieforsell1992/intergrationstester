@@ -1,4 +1,4 @@
-import { IMovie } from "./models/Movie";
+import { IMovie } from "./models/IMovies";
 
 export const movieSort = (movies: IMovie[], desc: boolean = true) => {
   return movies.sort((a: IMovie, b: IMovie) => {
@@ -10,7 +10,7 @@ export const movieSort = (movies: IMovie[], desc: boolean = true) => {
     } else {
       if (a.Title > b.Title) return -1;
       if (a.Title < b.Title) return 1;
-
+      // förstår inte riktigt detta? Fråga Sebbe!
       return 0;
     }
   });

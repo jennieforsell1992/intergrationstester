@@ -1,5 +1,5 @@
 import { IOmdbResponse } from "./../models/IOmdbResponse";
-import { IMovie } from "./../models/Movie";
+import { IMovie } from "../models/IMovies";
 import axios from "axios";
 
 export const getData = async (searchText: string): Promise<IMovie[]> => {
@@ -12,3 +12,7 @@ export const getData = async (searchText: string): Promise<IMovie[]> => {
       return [];
     });
 };
+
+//Vad är catch?
+//betyder det att det om mitt promise blir rejected skickas istället en
+//tom lista?

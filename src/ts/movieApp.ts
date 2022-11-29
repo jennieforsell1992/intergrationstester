@@ -1,4 +1,4 @@
-import { IMovie } from "./models/Movie";
+import { IMovie } from "./models/IMovies";
 import { getData } from "./services/movieservice";
 
 let movies: IMovie[] = [];
@@ -6,8 +6,8 @@ let movies: IMovie[] = [];
 export const init = () => {
   let form = document.getElementById("searchForm") as HTMLFormElement;
   form.addEventListener("submit", (e: SubmitEvent) => {
-    e.preventDefault();
-    handleSubmit();
+    exports.e.preventDefault();
+    exports.handleSubmit();
   });
 };
 
@@ -19,7 +19,8 @@ export async function handleSubmit() {
     "movie-container"
   ) as HTMLDivElement;
   container.innerHTML = "";
-
+  //try, hanterar eventuella error i kodningen
+  // sitter try och catch ihop?
   try {
     movies = await getData(searchText);
 
@@ -32,6 +33,9 @@ export async function handleSubmit() {
     exports.displayNoResult(container);
   }
 }
+//vad är catch?
+//varför använder man catch i en if och else sats?
+//varför använder man try innan en if och else sats?
 
 export const createHtml = (movies: IMovie[], container: HTMLDivElement) => {
   for (let i = 0; i < movies.length; i++) {
