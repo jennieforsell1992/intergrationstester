@@ -3,7 +3,7 @@ import { test, describe, jest } from "@jest/globals";
 import { IMovie } from "../ts/models/IMovies";
 
 describe("movieSort", () => {
-  test("should change position from a-b ", () => {
+  test("should sort list - alphabet ", () => {
     //Arrange
     let movies: IMovie[] = [
       {
