@@ -6,7 +6,7 @@ let movies: IMovie[] = [];
 export const init = () => {
   let form = document.getElementById("searchForm") as HTMLFormElement;
   form.addEventListener("submit", (e: SubmitEvent) => {
-    exports.e.preventDefault();
+    e.preventDefault();
     exports.handleSubmit();
   });
 };
