@@ -26,9 +26,8 @@ let mockData: IMovie[] = [
     Year: "2017",
   },
 ];
-
 jest.mock("axios", () => ({
-  get: async () => {
+  get: async (searchText: string) => {
     return new Promise((resolve) => {
       resolve({ data: { Search: mockData, totalResults: "4201" } });
     });
@@ -38,16 +37,16 @@ jest.mock("axios", () => ({
 describe("const getData and mockdata", () => {
   test("Should get data from axios", async () => {
     //Arrange
-    let textMovie: string = "filmer";
+    let searchText: string = "filmer";
     //Act
-    let movieInfo: IMovie[] = await getData(textMovie);
+    let movieInfo: IMovie[] = await getData(searchText);
     //Assert
 
     expect(movieInfo.length).toBe(3);
     expect(movieInfo[0].Title).toBe("Harry Potter");
     expect(movieInfo[2].Year).toBe("2017");
   });
-  //   test("Should get a empty array", async () => {
+  //   test("Should get return a empty array", async () => {
   //     //Arrange
   //     let movieText: [] = [];
   //     let textInfo: string = "hej";
@@ -59,4 +58,24 @@ describe("const getData and mockdata", () => {
   //     // expect(movieInfo[0].Title).toBe("Harry Potter");
   //     // expect(movieInfo[2].Year).toBe("2017");
   //   });
+
+  // test("should reject data", async () => {
+  //   jest.mock("axios", () => ({
+  //     get: async () => {
+  //       return new Promise((reject) => {
+  //         reject({ data: [] });
+  //       });
+  //     },
+  //   }));
+  //   //Arrange
+  //   let text: string = "";
+  //   let movieInfos: IMovie[] = [];
+  //   //Act
+  //   try {
+  //     movieInfos = await getData(text);
+  //   } catch (error: any) {
+  //     //Assert
+  //     expect(error.data).toBe([]);
+  //   }
+  // });
 });

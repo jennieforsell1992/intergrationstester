@@ -19,8 +19,7 @@ export async function handleSubmit() {
     "movie-container"
   ) as HTMLDivElement;
   container.innerHTML = "";
-  //try, hanterar eventuella error i kodningen
-  // sitter try och catch ihop?
+
   try {
     movies = await getData(searchText);
 
@@ -33,9 +32,6 @@ export async function handleSubmit() {
     exports.displayNoResult(container);
   }
 }
-//vad är catch?
-//varför använder man catch i en if och else sats?
-//varför använder man try innan en if och else sats?
 
 export const createHtml = (movies: IMovie[], container: HTMLDivElement) => {
   for (let i = 0; i < movies.length; i++) {

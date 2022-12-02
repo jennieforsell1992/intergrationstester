@@ -12,7 +12,3 @@ export const getData = async (searchText: string): Promise<IMovie[]> => {
       return [];
     });
 };
-
-//Vad är catch?
-//betyder det att det om mitt promise blir rejected skickas istället en
-//tom lista?

@@ -94,6 +94,13 @@ describe("movieSort", () => {
         Poster: "poster",
         Year: "2003",
       },
+      {
+        Title: "Greveholm",
+        imdbID: "08575",
+        Type: "typetext",
+        Poster: "poster",
+        Year: "2003",
+      },
     ];
     //Act
     functions.movieSort(movies, false);

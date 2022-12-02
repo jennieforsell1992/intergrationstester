@@ -10,7 +10,6 @@ export const movieSort = (movies: IMovie[], desc: boolean = true) => {
     } else {
       if (a.Title > b.Title) return -1;
       if (a.Title < b.Title) return 1;
-      // förstår inte riktigt detta? Fråga Sebbe!
       return 0;
     }
   });
